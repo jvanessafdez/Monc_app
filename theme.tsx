@@ -4,7 +4,7 @@ import { Platform, PlatformColor } from 'react-native';
 const theme = extendTheme({
     colors: {
         // Fondo blanco
-        background: PlatformColor('systemBackground'),
+        background: PlatformColor('#FFFFFF'),
         // Azul #01C6C0
         primary: {
             50: '#E3FDFD',

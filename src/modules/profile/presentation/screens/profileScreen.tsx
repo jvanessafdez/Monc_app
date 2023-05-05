@@ -4,7 +4,7 @@ import React from 'react'
 export default function ShiftScreen() {
   return (
     <View>
-      <Text>shiftScreen</Text>
+      <Text>profileScreen</Text>
     </View>
   )
 }
