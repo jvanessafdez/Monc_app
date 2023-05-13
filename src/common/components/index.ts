@@ -8,5 +8,6 @@ export * from './IconText/iconText';
 export * from './Loader/Wander';
 export * from './Map/map';
 export * from './Search/searchBar';
+export * from './Slider/slider';
 export * from './SmallCard/smallCard';
 export * from './SpeedDial/speedDial';

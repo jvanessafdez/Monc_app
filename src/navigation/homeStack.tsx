@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Header } from 'layouts/header';
-import { ShiftDetailsScreen, ShiftScreen, CheckInOut } from 'modules/shift/presentation/screens';
+import { ShiftDetailsScreen, ShiftScreen, CheckInOut, ActivitiesScreen } from 'modules/shift/presentation/screens';
 import { RootStackParamList } from './navigationTYpes/navigationTypes';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -28,6 +28,13 @@ const HomeStack: React.FC = () => {
         component={CheckInOut}
         options={{
           headerShown: false, // Agrega esta línea para ocultar el encabezado
+        }}
+      />
+      <Stack.Screen
+        name="activities"
+        component={ActivitiesScreen}
+        options={{
+          header: (props) => <Header title='Actividades' search {...props} />,
         }}
       />
     </Stack.Navigator>

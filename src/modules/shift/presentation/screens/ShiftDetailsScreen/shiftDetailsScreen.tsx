@@ -116,6 +116,10 @@ const STYLES = ['default', 'dark-content', 'light-content'] as const;
     navigation.navigate("check-in-out", {shift: shift})
   }
 
+  const handleActivityPress = () => {
+    navigation.navigate("activities", {shift: shift})
+  }
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'created':
@@ -223,6 +227,7 @@ const STYLES = ['default', 'dark-content', 'light-content'] as const;
                             badge
                             text={'1'}
                             color={getStatusColor(shift.status)}
+                            onPress = {handleActivityPress}
                           />
                         </>
                       ) : (

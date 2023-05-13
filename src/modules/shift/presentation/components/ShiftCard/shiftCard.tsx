@@ -9,20 +9,12 @@ import { formatDate } from 'common';
 
 interface Shift {
   id: number;
-  client: string;
   start_datetime: string;
   end_datetime: string;
-  place_name: string;
-  project_name: string;
-  address: string;
-  allocated_hours: number | null;
-  owner: string;
   round: boolean;
   status: 'created' | 'closed' | 'active';
-  phone: string;
-  project: string;
-  description: string;
-}
+  extra: any;
+} 
 
 interface ShiftCardProps {
   shift: Shift;
@@ -31,8 +23,10 @@ interface ShiftCardProps {
 export const ShiftCard: React.FC<ShiftCardProps> = ({ shift }) => {
   const navigation = useNavigation<RootNavigationProp>();
   const pruebaHour = '07:00AM';
-  const formattedDateStart = formatDate(shift.start_datetime)
-  const formattedDateEnd = formatDate(shift.end_datetime)
+  const formattedDateStart = formatDate(shift.start_datetime);
+  const formattedDateEnd = formatDate(shift.end_datetime);
+  const place = shift.extra.place_name ? shift.extra.place_name : 'No especifica';
+  const address = shift.extra.address ? shift.extra.address : 'No especifica';
   const status = {
     created: 'Pendiente',
     active: 'Iniciado',
@@ -67,12 +61,12 @@ export const ShiftCard: React.FC<ShiftCardProps> = ({ shift }) => {
           </SmallCard>
           <Box>
             <Box style={general.row}>
-              <Text style={{ ...general.subtitle, flex: 5 }}>{shift.place_name}</Text>
+              <Text style={{ ...general.subtitle, flex: 5 }}>{place}</Text>
               <Box flex={2}>
                 <Chip text={status[shift.status]} color={color[shift.status]} />
               </Box>
             </Box>
-            <Text style={general.normalText}>{shift.address}</Text>
+            <Text style={general.normalText}>{address}</Text>
             <Box style={general.rowSpace}>
               <IconText iconType='Fontisto' iconName={'clock'} text={formattedDateStart.timeFormat} color={'#1DD75B'} />
               <IconText iconType='Fontisto' iconName={'clock'} text={formattedDateEnd.timeFormat} color={'#E05858'} />

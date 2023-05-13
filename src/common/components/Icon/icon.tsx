@@ -30,6 +30,7 @@ type CustomIconProps = {
     marginButton?: boolean;
     pressable?: boolean;
     onPress?: () => void; 
+    style?: any;
 };
 
 const IconMapping: IconMappingType = {
@@ -49,9 +50,9 @@ const IconMapping: IconMappingType = {
     SimpleLineIcons
 }
 
-export const CustomIcon: React.FC<CustomIconProps> = ({iconType, name, size, color, marginText, marginButton, pressable, onPress}) => {
+export const CustomIcon: React.FC<CustomIconProps> = ({iconType, name, size, color, marginText, marginButton, pressable, onPress, style}) => {
     const IconComponent = IconMapping[iconType];
-    const boxStyle = marginText ? general.marginRight10 : marginButton ? general.marginRight5 : {};
+    const boxStyle = marginText ? general.marginRight10 : marginButton ? general.marginRight5 : style ? style : {} ;
     const iconElement = (
         <Box style={boxStyle}>
             <IconComponent name={name} size={size} color={color} />

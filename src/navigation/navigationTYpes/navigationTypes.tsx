@@ -1,27 +1,20 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 
 interface Shift {
-  id:number;
-  client:string;
+  id: number;
   start_datetime: string;
   end_datetime: string;
-  place_name: string;
-  project_name:string;
-  address: string;
-  allocated_hours: number | null;
-  owner: string;
-  round:boolean
+  round: boolean;
   status: 'created' | 'closed' | 'active';
-  phone: string;
-  project: string;
-  description: string;
-}
+  extra: any;
+} 
 
 export type RootStackParamList = {
   'inicio': undefined;
   'shift': any;
   'shift-details': {shift: Shift};
   'check-in-out': {shift: Shift};
+  'activities': {shift: Shift};
 };
 
 export type RootNavigationProp = StackNavigationProp<RootStackParamList>;

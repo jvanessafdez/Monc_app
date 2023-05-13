@@ -13,8 +13,8 @@ export const Map: React.FC<MapProps> = ({ latitude, longitude, markerColor }) =>
     const region = {
       latitude,
       longitude,
-      latitudeDelta: 0.003,
-      longitudeDelta: 0.003,
+      latitudeDelta: 0.008,
+      longitudeDelta: 0.008,
     };
   
     return (
